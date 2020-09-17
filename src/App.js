@@ -1,9 +1,71 @@
-import React from 'react';
-import './App.css';
+import React, { useState } from 'react';
+
+import './SASS/first-SASS.scss';
 
 const App = () => {
+
+  const [showContent, setShowContent] = useState('none');
+  const [letterSpacing, setLetterSpacing] =  useState('0px');
+
+  const handleShowContent = () => {
+
+  setShowContent('block');
+
+  document.getElementById('content').animate([
+    {top: '-32px', opacity: 0},
+    {top: '0px', opacity: 1}
+    ], {
+      duration: 400,
+    });
+
+  document.getElementById('title').animate([
+    {letterSpacing: '0px'},
+    {letterSpacing: '28px'}
+    ], {
+      duration: 400,
+    });
+
+    setTimeout(() => {
+      setLetterSpacing('28px');
+    }, 350);
+
+  };
+
+  const handleHideContent = () => {
+
+  document.getElementById('content').animate([
+    {top: '0px', opacity: 1},
+    {top: '-32px', opacity: 0}
+    ], {
+      duration: 400,
+    });
+
+    document.getElementById('title').animate([
+      {letterSpacing: '28px'},
+      {letterSpacing: '0px'}
+      ], {
+        duration: 400,
+      });
+
+      setTimeout(() => {
+        setLetterSpacing('0px');
+      }, 350);
+
+    setTimeout(() => {
+      setShowContent('none');
+    }, 350);
+
+  };
+
   return (
-    <div className="hello App">hello</div>
+    <div className="main-container">
+      <div className="content-container" onMouseEnter={handleShowContent} onMouseOut={handleHideContent}>
+        <p id="title" className="title" style={{letterSpacing: `${letterSpacing}`}}>Hello</p>
+        {showContent ?
+        <p id="content" className="content" style={{display: `${showContent}`}}>lorem ipsum del sur ndje dcvcfx ekr scghj enckewncsnc cscghjj cwnfonj rccghjc fgfghvghfgh</p>
+        :''}
+      </div>
+    </div>
   );
 };
 export default App;

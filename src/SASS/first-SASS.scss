@@ -1,0 +1,67 @@
+// sass variables
+$primary-color: #004cff;
+$secondary-color: #ab00fa;
+$background-color: #ffffff;
+$text-color: #18023b;
+
+$full-screen: 100vh;
+
+$border-radius: 12%;
+$border: 2px solid $secondary-color;
+
+$padding-sm: 5px;
+$padding-lg: 10px;
+
+$margin-sm: 7.5px;
+$margin-lg: 15px;
+
+// sass mix-ins
+@mixin center-all {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin font-title {
+  font: {
+    size: 1.75rem;
+    weight: bold;
+  }
+  color: $background-color;
+  width: fit-content;
+  // margin: auto;
+}
+
+// selectors
+.main-container {
+  display: flex;
+  background-color: $background-color;
+  height: $full-screen;
+  padding: $padding-lg;
+  @include center-all;
+}
+
+.content-container {
+  height: 300px;
+  width: 300px;
+  margin: $margin-lg;
+  padding: $padding-sm;
+  border: $border;
+  border-radius: $border-radius;
+  background-color: $primary-color;
+}
+
+.title {
+  @include font-title;
+  margin-left: 15%;
+  margin-right: auto;
+  pointer-events: none
+}
+
+.content {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  pointer-events: none
+}
+
