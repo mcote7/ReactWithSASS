@@ -12,7 +12,7 @@ const App = () => {
   setShowContent('block');
 
   document.getElementById('content').animate([
-    {top: '-32px', opacity: 0},
+    {top: '-30px', opacity: 0},
     {top: '0px', opacity: 1}
     ], {
       duration: 400,
@@ -20,13 +20,13 @@ const App = () => {
 
   document.getElementById('title').animate([
     {letterSpacing: '0px'},
-    {letterSpacing: '28px'}
+    {letterSpacing: '30px'}
     ], {
       duration: 400,
     });
 
     setTimeout(() => {
-      setLetterSpacing('28px');
+      setLetterSpacing('30px');
     }, 350);
 
   };
@@ -35,13 +35,13 @@ const App = () => {
 
   document.getElementById('content').animate([
     {top: '0px', opacity: 1},
-    {top: '-32px', opacity: 0}
+    {top: '-30px', opacity: 0}
     ], {
       duration: 400,
     });
 
     document.getElementById('title').animate([
-      {letterSpacing: '28px'},
+      {letterSpacing: '30px'},
       {letterSpacing: '0px'}
       ], {
         duration: 400,
