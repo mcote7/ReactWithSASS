@@ -65,6 +65,8 @@ const App = () => {
         <p id="content" className="content" style={{display: `${showContent}`}}>lorem ipsum del sur ndje dcvcfx ekr scghj enckewncsnc cscghjj cwnfonj rccghjc fgfghvghfgh</p>
         :''}
       </div>
+      <div className="good-bye px-2 pt-2">goodbye</div>
+      <div className="good-times px-2 ml-2">good times</div>
     </div>
   );
 };

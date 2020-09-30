@@ -6,7 +6,7 @@ $text-color: #18023b;
 
 $full-screen: 100vh;
 
-$border-radius: 12%;
+$border-radius: 12px;
 $border: 2px solid $secondary-color;
 
 $padding-sm: 5px;
@@ -22,14 +22,12 @@ $margin-lg: 15px;
   align-items: center;
 }
 
-@mixin font-title {
+@mixin font-title($var-weight, $var-color) {
   font: {
     size: 1.75rem;
-    weight: bold;
+    weight: $var-weight;
   }
-  color: $background-color;
-  width: fit-content;
-  // margin: auto;
+  color: $var-color;
 }
 
 // selectors
@@ -52,10 +50,11 @@ $margin-lg: 15px;
 }
 
 .title {
-  @include font-title;
+  @include font-title(bolder, #04fce7);
+  width: fit-content;
   margin-left: 15%;
   margin-right: auto;
-  pointer-events: none
+  pointer-events: none;
 }
 
 .content {
@@ -65,3 +64,44 @@ $margin-lg: 15px;
   pointer-events: none
 }
 
+
+// palceholder styles = %
+%palceholder-styles {
+  height: 50px;
+  border-radius: $border-radius;
+  background-color: $text-color;
+  color: $background-color;
+}
+// @extend %
+.good-bye {
+  @extend %palceholder-styles;
+}
+
+// adding parameters to mixin with multiple values
+@mixin shadow($shadow...) {
+  box-shadow: $shadow;
+  top:-5px;
+  color: white!important;
+}
+.good-times {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  @extend .good-bye;
+  @include font-title(200, #b38df1);
+  transition: 0.6s ease, background-color 6s ease;
+}
+.good-times:hover {
+  background-color: #004cff;
+  @include shadow(1px 2px 5px 5px rgba(42, 250, 0, 0.1), 1px 2px 5px rgb(255, 0, 106), 1px 2px 5px 5px rgba(0, 162, 255, 0.75));
+  animation: float 0.2s ease-in 0.4s 6 forwards;
+}
+@keyframes float {
+  0% {top: -5px;}
+  25% {top: 5px;}
+  35% {top: -10px;}
+  50% {top: -5px;}
+  60% {left: -5px;}
+  75% {left: 5px;}
+  100% {left: 0px;}
+}
