@@ -39,11 +39,12 @@ $margin-lg: 15px;
   @include center-all;
 }
 
+// join two lists
 .content-container {
   height: 300px;
   width: 300px;
   margin: $margin-lg;
-  padding: $padding-sm;
+  padding: join($padding-lg,$padding-sm);
   border: $border;
   border-radius: $border-radius;
   background-color: $primary-color;
@@ -61,7 +62,8 @@ $margin-lg: 15px;
   position: relative;
   top: 0px;
   left: 0px;
-  pointer-events: none
+  pointer-events: none;
+  line-height: 2;
 }
 
 

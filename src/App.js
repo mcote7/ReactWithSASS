@@ -12,8 +12,8 @@ const App = () => {
   setShowContent('block');
 
   document.getElementById('content').animate([
-    {top: '-30px', opacity: 0},
-    {top: '0px', opacity: 1}
+    {lineHeight: 0, top: '-30px', opacity: 0},
+    {lineHeight: 2, top: '0px', opacity: 1}
     ], {
       duration: 400,
     });
@@ -34,8 +34,8 @@ const App = () => {
   const handleHideContent = () => {
 
   document.getElementById('content').animate([
-    {top: '0px', opacity: 1},
-    {top: '-30px', opacity: 0}
+    {lineHeight: 2, top: '0px', opacity: 1},
+    {lineHeight: 0, top: '-30px', opacity: 0}
     ], {
       duration: 400,
     });
@@ -67,6 +67,9 @@ const App = () => {
       </div>
       <div className="good-bye px-2 pt-2">goodbye</div>
       <div className="good-times px-2 ml-2">good times</div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+        <path d="M10.707 7.05L10 6.343 4.343 12l1.414 1.414L10 9.172l4.243 4.242L15.657 12z" />
+      </svg>
     </div>
   );
 };
